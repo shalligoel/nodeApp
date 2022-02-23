@@ -1,0 +1,15 @@
+Steps:
+1. create a node application on your GCP VM, test and run.
+2. create account on Github with your mail id.
+3. create a repository on github named nodeApp.
+4. Create publickey on ur machine (using ssh-keygen)
+5. save publickey in your github account(settings - ssh keys)
+6. make your folder as current folder.
+7. push your code into github.
+8. Install docker on your machine. (refer installation document)
+9. Install jenkins on your machine. (refer installation document)
+10. Goto github repo - developer settings - oauth token - generate and copy.
+11. Goto Jenkins - Manage Credentials and save.
+12. create account on docker hub.
+13. Save Docker hub credentials in Jenkins credentials and give id as "git"
+14.

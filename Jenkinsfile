@@ -10,7 +10,6 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        sh docker login -u shalligoel -p Mycloud@8
         app = docker.build("shalligoel/training:hellonode")
     }
 
@@ -38,6 +37,7 @@ node {
         /* Finally, we'll pull and run the image :
         */
         docker.withRegistry('https://registry.hub.docker.com', 'git') {
+		    sh docker login -u shalligoel -p Mycloud@8
             sh docker pull shalligoel/training:hellonode
             sh docker run -p 8000:8000 shalligoel/training:hellonode
         }
