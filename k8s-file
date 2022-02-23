@@ -38,30 +38,18 @@ node {
         }
     }
 	
-	stage('Run image') {
-        /* Finally, we'll pull and run the image :
-        */
-        docker.withRegistry('https://registry.hub.docker.com', 'git') {
-		    sh "docker login -u shalligoel -p 'Mycloud@8'"
-            sh "docker pull shalligoel/training:hellonode-k8s"
-            sh "docker run -p 8000:8000 shalligoel/training:hellonode-k8s"
-        }
-    }
-	
-	
 	
 	stage('Deploy to K8s') {
-            steps{
-                echo "Deployment started ..."
+            echo "Deployment started ..."
                 step([$class: 'KubernetesEngineBuilder', \
                   projectId: env.PROJECT_ID, \
                   clusterName: env.CLUSTER_NAME, \
                   location: env.LOCATION, \
-                  manifestPattern: 'myPod.yml', \
+                  manifestPattern: 'mydep.yml', \
                   credentialsId: env.myproj8sg, \
                   verifyDeployments: true])
-                
-            }
+				  
+            
      }    
 }
 
