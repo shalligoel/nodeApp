@@ -60,9 +60,9 @@ node {
                   manifestPattern: 'myPod.yml', \
                   credentialsId: env.myproj8sg, \
                   verifyDeployments: true])
-                }
+                
             }
-        }    
+     }    
 }
 
 
